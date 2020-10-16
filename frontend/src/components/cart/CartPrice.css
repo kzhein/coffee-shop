@@ -1,0 +1,41 @@
+.cart-price {
+  padding: 1rem;
+  height: 110px;
+  background-color: #fff;
+}
+
+.cart-price .total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-price .order {
+  display: block;
+  font-family: 'Roboto Slab';
+  background-color: var(--primary-color);
+  font-size: 1rem;
+  color: #e8d7d7;
+  padding: 0.4rem 2rem;
+  border: none;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+
+.cart-price .order:disabled {
+  background-color: rgb(51, 50, 50);
+}
+
+/* Medium devices (tablets)*/
+@media (max-width: 991px) {
+}
+
+/* Small devices (landscape phones)*/
+@media (max-width: 767px) {
+}
+
+/* Extra small devices (portrait phones)*/
+@media (max-width: 575px) {
+  .cart-price {
+    margin-bottom: 1rem;
+  }
+}

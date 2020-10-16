@@ -1,0 +1,44 @@
+.intro {
+  height: 90vh;
+  margin-top: 3rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('../../images/coffee.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro p {
+  color: #fff;
+  font-size: 3rem;
+  text-align: center;
+  max-width: 35rem;
+}
+
+#coffee-display {
+  padding: 2rem 0 3rem 4rem;
+  background-color: var(--light-color);
+}
+
+#coffee-display h2 {
+  color: var(--primary-color);
+}
+
+.product-list {
+  margin-bottom: 3rem;
+}
+
+/* Medium devices (tablets)*/
+@media (max-width: 991px) {
+}
+
+/* Small devices (landscape phones)*/
+@media (max-width: 767px) {
+}
+
+/* Extra small devices (portrait phones)*/
+@media (max-width: 575px) {
+  .intro p {
+    font-size: 2rem;
+  }
+}

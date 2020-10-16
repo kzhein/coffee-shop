@@ -1,0 +1,82 @@
+.order-price {
+  padding: 1rem;
+  height: 110px;
+  background-color: #fff;
+  font-size: 0.8rem;
+}
+
+.order-price .total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-price .ordered-at {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-price .ordered-at .first {
+  margin-right: 1rem;
+}
+
+.order-price .ordered-at .second {
+  text-align: right;
+}
+
+.order-status-container {
+  margin: 0.5rem 0 1rem 0;
+  height: 5px;
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+}
+
+.order-status {
+  background: var(--primary-color);
+  height: 100%;
+  border-radius: 5px;
+}
+
+.placed {
+  width: 10%;
+}
+.confirmed {
+  width: 40%;
+}
+.ontheway {
+  width: 65%;
+}
+.delivered {
+  width: 100%;
+}
+
+.order-status-text {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.2rem;
+  font-size: 0.5rem;
+}
+
+/* Medium devices (tablets)*/
+@media (max-width: 991px) {
+  .order-status-text {
+    font-size: 0.3rem;
+  }
+}
+
+/* Small devices (landscape phones)*/
+@media (max-width: 767px) {
+}
+
+/* Extra small devices (portrait phones)*/
+@media (max-width: 575px) {
+  .order-price {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 364px) {
+  .order-status-text {
+    font-size: 0.4rem;
+  }
+}

@@ -1,0 +1,13 @@
+node_modules/
+
+/frontend/build
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+/backend/config.env
+/backend/.DS_Store
+/backend/npm-debug.log*
+/backend/yarn-debug.log*
+/backend/yarn-error.log*

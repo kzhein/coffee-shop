@@ -1,0 +1,21 @@
+.order-items {
+  min-height: 200px;
+  padding: 1rem;
+  background-color: #fff;
+  margin-right: 1rem;
+}
+
+/* Medium devices (tablets)*/
+@media (max-width: 991px) {
+}
+
+/* Small devices (landscape phones)*/
+@media (max-width: 767px) {
+}
+
+/* Extra small devices (portrait phones)*/
+@media (max-width: 575px) {
+  .order-items {
+    margin-right: 0;
+  }
+}

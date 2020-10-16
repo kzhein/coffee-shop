@@ -1,0 +1,53 @@
+.register {
+  margin-top: 7rem;
+}
+
+.register p {
+  margin: 2rem 0 2rem 0;
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.register form {
+  max-width: 400px;
+  margin: 0 auto;
+  color: #757e99;
+  margin-bottom: 5rem;
+}
+
+.register form .form-group {
+  padding: 1rem 0;
+}
+
+.register form input[type='text'],
+.register form input[type='password'] {
+  display: block;
+  width: 100%;
+  height: 2.2rem;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: #f2f2f2;
+  border: none;
+}
+
+.register form input[type='text']:focus,
+.register form input[type='password']:focus {
+  outline: none;
+}
+
+.register .submit {
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto Slab';
+  background-color: var(--primary-color);
+  font-size: 1rem;
+  color: #e8d7d7;
+  padding: 0.7rem 2.5rem;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+}

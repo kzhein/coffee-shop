@@ -1,0 +1,71 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--dark-color);
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+}
+
+nav ul {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  /* background-color: blue; */
+  padding: 1.5rem 3rem;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 1rem;
+  /* background-color: yellow; */
+}
+
+nav ul li a.highlight {
+  background: var(--primary-color);
+  padding: 0.5rem 1.7rem;
+  border-radius: 10px;
+}
+
+.count {
+  color: #fff;
+  font-size: 0.7rem;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  text-align: center;
+  float: right;
+  margin-left: 0.2rem;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Medium devices (tablets)*/
+@media (max-width: 991px) {
+}
+
+/* Small devices (landscape phones)*/
+@media (max-width: 767px) {
+}
+
+/* Extra small devices (portrait phones)*/
+@media (max-width: 575px) {
+  nav {
+    flex-direction: column;
+    padding: 0 0;
+  }
+
+  nav ul li {
+    padding: 1rem 1.2rem;
+  }
+}

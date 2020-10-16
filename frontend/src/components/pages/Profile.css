@@ -1,0 +1,57 @@
+.profile {
+  margin-top: 9rem;
+}
+
+.profile p {
+  margin: 2rem 0 2rem 0;
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.order .info-text {
+  text-align: center;
+}
+
+.order .order-card {
+  display: flex;
+  background: var(--light-color);
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.order .order-card .order-items {
+  flex: 3;
+}
+
+.order .order-card .order-price {
+  flex: 1;
+}
+
+.deli-info-pwd {
+  /* display: flex; */
+  padding: 0 1.4rem;
+}
+
+/* Medium devices (tablets)*/
+@media (max-width: 991px) {
+}
+
+/* Small devices (landscape phones)*/
+@media (max-width: 767px) {
+}
+
+/* Extra small devices (portrait phones)*/
+@media (max-width: 575px) {
+  .order .order-card {
+    flex-direction: column-reverse;
+  }
+
+  .order .order-card .order-items {
+    flex: 1;
+  }
+
+  .deli-info-pwd {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,4 @@
+.product-list {
+  white-space: nowrap;
+  overflow-x: scroll;
+}
