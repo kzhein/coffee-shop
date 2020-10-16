@@ -14,6 +14,8 @@ const Register = props => {
     error,
     clearErrors,
     isAuthenticated,
+    success,
+    clearSuccess,
   } = useContext(AuthContext);
 
   const [user, setUser] = useState({
@@ -35,12 +37,17 @@ const Register = props => {
       props.history.push('/');
     }
 
+    if (success) {
+      setAlert(success, 'success');
+      clearSuccess();
+    }
+
     if (error) {
       setAlert(error, 'danger');
       clearErrors();
     }
     // eslint-disable-next-line
-  }, [error, isAuthenticated, props.history]);
+  }, [success, error, isAuthenticated, props.history]);
 
   const onChange = e =>
     setUser({

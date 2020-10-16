@@ -70,6 +70,7 @@ const AuthState = props => {
         payload: {
           token,
           user,
+          success: 'Registered successfully',
         },
       });
     } catch (err) {
@@ -102,6 +103,7 @@ const AuthState = props => {
         payload: {
           token,
           user,
+          success: 'Logged in successfully',
         },
       });
     } catch (err) {

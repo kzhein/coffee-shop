@@ -13,6 +13,8 @@ const Login = props => {
     isAuthenticated,
     loadUser,
     loading,
+    success,
+    clearSuccess,
   } = useContext(AuthContext);
   const { from } = props.location.state || { from: { pathname: '/' } };
 
@@ -26,12 +28,17 @@ const Login = props => {
       props.history.push(from.pathname);
     }
 
+    if (success) {
+      setAlert(success, 'success');
+      clearSuccess();
+    }
+
     if (error) {
       setAlert(error, 'danger');
       clearErrors();
     }
     // eslint-disable-next-line
-  }, [error, isAuthenticated, props.history]);
+  }, [success, error, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({
     email: '',
