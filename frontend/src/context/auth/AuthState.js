@@ -11,7 +11,10 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  PASSWORD_UPDATE_SUCCESS,
+  PASSWORD_UPDATE_FAIL,
   CLEAR_ERRORS,
+  CLEAR_SUCCESS,
   START_LOADING,
 } from '../types';
 
@@ -22,6 +25,7 @@ const AuthState = props => {
     loading: true,
     user: null,
     error: null,
+    success: null,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -108,11 +112,47 @@ const AuthState = props => {
     }
   };
 
+  // Update password
+  const updatePassword = async formData => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    try {
+      dispatch({ type: START_LOADING });
+      const {
+        data: {
+          token,
+          data: { user },
+        },
+      } = await axios.patch('/api/v1/users/updateMyPassword', formData, config);
+
+      dispatch({
+        type: PASSWORD_UPDATE_SUCCESS,
+        payload: {
+          token,
+          user,
+          success: 'Password updated successfully',
+        },
+      });
+    } catch (err) {
+      dispatch({
+        type: PASSWORD_UPDATE_FAIL,
+        payload: err.response.data.message,
+      });
+    }
+  };
+
   // Logout
   const logout = () => dispatch({ type: LOGOUT });
 
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+
+  // Clear Success
+  const clearSuccess = () => dispatch({ type: CLEAR_SUCCESS });
 
   return (
     <AuthContext.Provider
@@ -122,11 +162,14 @@ const AuthState = props => {
         loading: state.loading,
         user: state.user,
         error: state.error,
+        success: state.success,
         register,
         loadUser,
         login,
         logout,
         clearErrors,
+        clearSuccess,
+        updatePassword,
       }}
     >
       {props.children}

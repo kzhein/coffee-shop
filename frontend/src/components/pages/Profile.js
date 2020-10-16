@@ -34,9 +34,9 @@ const Profile = () => {
           ))
         )}
       </div>
-      {/* <div className='deli-info-pwd'>
+      <div className='deli-info-pwd'>
         <UpdatePassword />
-      </div> */}
+      </div>
     </div>
   );
 };

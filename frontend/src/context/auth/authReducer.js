@@ -6,7 +6,10 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  PASSWORD_UPDATE_SUCCESS,
+  PASSWORD_UPDATE_FAIL,
   CLEAR_ERRORS,
+  CLEAR_SUCCESS,
   START_LOADING,
 } from '../types';
 
@@ -19,6 +22,7 @@ export default (state, action) => {
         loading: false,
         user: action.payload,
       };
+    case PASSWORD_UPDATE_SUCCESS:
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem('token', action.payload.token);
@@ -41,10 +45,21 @@ export default (state, action) => {
         user: null,
         error: action.payload,
       };
+    case PASSWORD_UPDATE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
+      };
+    case CLEAR_SUCCESS:
+      return {
+        ...state,
+        success: null,
       };
     case START_LOADING:
       return {
