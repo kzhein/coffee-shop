@@ -13,6 +13,10 @@ import {
   LOGOUT,
   PASSWORD_UPDATE_SUCCESS,
   PASSWORD_UPDATE_FAIL,
+  PASSWORD_FORGOT_SUCCESS,
+  PASSWORD_FORGOT_FAIL,
+  PASSWORD_RESET_SUCCESS,
+  PASSWORD_RESET_FAIL,
   CLEAR_ERRORS,
   CLEAR_SUCCESS,
   START_LOADING,
@@ -147,6 +151,70 @@ const AuthState = props => {
     }
   };
 
+  // Forgot password(Request a password reset email)
+  const forgotPassword = async email => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    try {
+      dispatch({ type: START_LOADING });
+
+      await axios.post('/api/v1/users/forgotPassword', { email }, config);
+
+      dispatch({
+        type: PASSWORD_FORGOT_SUCCESS,
+        payload: {
+          success: 'Password reset email is sent successfully',
+        },
+      });
+    } catch (err) {
+      dispatch({
+        type: PASSWORD_FORGOT_FAIL,
+        payload: err.response.data.message,
+      });
+    }
+  };
+
+  // Reset Password
+  const resetPassword = async (resetToken, formData) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    try {
+      dispatch({ type: START_LOADING });
+      const {
+        data: {
+          token,
+          data: { user },
+        },
+      } = await axios.patch(
+        `/api/v1/users/resetPassword/${resetToken}`,
+        formData,
+        config
+      );
+
+      dispatch({
+        type: PASSWORD_RESET_SUCCESS,
+        payload: {
+          token,
+          user,
+          success: 'Password has been reset successfully',
+        },
+      });
+    } catch (err) {
+      dispatch({
+        type: PASSWORD_RESET_FAIL,
+        payload: err.response.data.message,
+      });
+    }
+  };
+
   // Logout
   const logout = () => dispatch({ type: LOGOUT });
 
@@ -172,6 +240,8 @@ const AuthState = props => {
         clearErrors,
         clearSuccess,
         updatePassword,
+        forgotPassword,
+        resetPassword,
       }}
     >
       {props.children}

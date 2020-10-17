@@ -37,8 +37,20 @@
   outline: none;
 }
 
+.login form .login-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.login form .login-btn-container a {
+  margin-right: 1rem;
+  color: #757e99;
+  font-size: 0.9rem;
+}
+
 .login .submit {
-  float: right;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,6 +60,5 @@
   color: #e8d7d7;
   padding: 0.7rem 2.5rem;
   border: none;
-  margin-top: 1rem;
   cursor: pointer;
 }

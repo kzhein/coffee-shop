@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
 import Loading2 from '../layout/Loading2';
@@ -86,10 +87,13 @@ const Login = props => {
             onChange={onChange}
           />
         </div>
-        <button className='submit' disabled={loading}>
-          Login
-          {loading && <Loading2 />}
-        </button>
+        <div className='login-btn-container'>
+          <Link to='/forgot-password'>Forgot password?</Link>
+          <button className='submit' disabled={loading}>
+            Login
+            {loading && <Loading2 />}
+          </button>
+        </div>
       </form>
     </div>
   );

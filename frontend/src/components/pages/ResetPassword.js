@@ -1,31 +1,28 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
 import Loading2 from '../layout/Loading2';
-import './Login.css';
-import './Register.css';
+import './ResetPassword.css';
 
-const Register = props => {
+const ResetPassword = props => {
   const { setAlert } = useContext(AlertContext);
   const {
-    register,
-    loadUser,
-    loading,
     error,
     clearErrors,
     isAuthenticated,
+    loadUser,
+    loading,
     success,
     clearSuccess,
+    resetPassword,
   } = useContext(AuthContext);
-
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
+  const { token } = useParams();
+  const [formData, setFormData] = useState({
     password: '',
-    password2: '',
+    passwordConfirm: '',
   });
-
-  const { name, email, password, passwordConfirm } = user;
+  const { password, passwordConfirm } = formData;
 
   useEffect(() => {
     loadUser();
@@ -46,76 +43,58 @@ const Register = props => {
       setAlert(error, 'danger');
       clearErrors();
     }
+
     // eslint-disable-next-line
   }, [success, error, isAuthenticated, props.history]);
 
-  const onChange = e =>
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
-
   const onSubmit = e => {
     e.preventDefault();
-    if (name === '' || email === '' || password === '') {
-      setAlert('Please enter all fields', 'danger');
+
+    if (password === '' || passwordConfirm === '') {
+      setAlert('Please fill in all fields', 'danger');
+    } else if (password !== passwordConfirm) {
+      setAlert(
+        'Your new password and password confirmation do not match',
+        'danger'
+      );
     } else {
-      register({
-        name,
-        email,
-        password,
-        passwordConfirm,
-      });
+      resetPassword(token, formData);
     }
   };
 
+  const onChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
-    <div className='register container'>
-      <p>Register</p>
+    <div className='reset-password container'>
+      <p>Enter your new password</p>
       <form onSubmit={onSubmit}>
-        <div className='form-group'>
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            name='name'
-            id='name'
-            value={name}
-            onChange={onChange}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='text'
-            name='email'
-            id='email'
-            value={email}
-            onChange={onChange}
-          />
-        </div>
         <div className='form-group'>
           <label htmlFor='password'>Password</label>
           <input
             type='password'
             name='password'
             id='password'
-            value={password}
             onChange={onChange}
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='passwordConfirm'>Password Confirm</label>
+          <label htmlFor='password'>Confirm Password</label>
           <input
             type='password'
             name='passwordConfirm'
             id='passwordConfirm'
-            value={passwordConfirm}
             onChange={onChange}
           />
         </div>
-        <div className='register-btn-container'>
+        <div className='reset-password-btn-container'>
           <button className='submit' disabled={loading}>
-            Register{loading && <Loading2 />}
+            Reset
+            {loading && <Loading2 />}
           </button>
         </div>
       </form>
@@ -123,4 +102,4 @@ const Register = props => {
   );
 };
 
-export default Register;
+export default ResetPassword;

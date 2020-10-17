@@ -91,9 +91,11 @@ const UpdatePassword = () => {
             id='passwordConfirm'
           />
         </div>
-        <button className='submit' disabled={loading}>
-          Update{loading && <Loading2 />}
-        </button>
+        <div className='update-password-btn-container'>
+          <button className='submit' disabled={loading}>
+            Update{loading && <Loading2 />}
+          </button>
+        </div>
       </form>
     </div>
   );

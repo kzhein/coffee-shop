@@ -8,6 +8,8 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Cart from './components/pages/Cart';
 import Profile from './components/pages/Profile';
+import ForgotPassword from './components/pages/ForgotPassword';
+import ResetPassword from './components/pages/ResetPassword';
 import DeliveryConfirm from './components/profile/DeliveryConfirm';
 import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -39,6 +41,16 @@ const App = () => {
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/cart' component={Cart} />
+                    <Route
+                      exact
+                      path='/forgot-password'
+                      component={ForgotPassword}
+                    />
+                    <Route
+                      exact
+                      path='/reset-password/:token'
+                      component={ResetPassword}
+                    />
                     <PrivateRoute exact path='/profile' component={Profile} />
                     <PrivateRoute
                       exact

@@ -8,6 +8,10 @@ import {
   LOGOUT,
   PASSWORD_UPDATE_SUCCESS,
   PASSWORD_UPDATE_FAIL,
+  PASSWORD_FORGOT_SUCCESS,
+  PASSWORD_FORGOT_FAIL,
+  PASSWORD_RESET_SUCCESS,
+  PASSWORD_RESET_FAIL,
   CLEAR_ERRORS,
   CLEAR_SUCCESS,
   START_LOADING,
@@ -23,6 +27,7 @@ export default (state, action) => {
         user: action.payload,
       };
     case PASSWORD_UPDATE_SUCCESS:
+    case PASSWORD_RESET_SUCCESS:
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem('token', action.payload.token);
@@ -32,6 +37,14 @@ export default (state, action) => {
         isAuthenticated: true,
         loading: false,
       };
+    case PASSWORD_FORGOT_SUCCESS:
+      return {
+        ...state,
+        ...action.payload,
+        loading: false,
+      };
+    case PASSWORD_FORGOT_FAIL:
+    case PASSWORD_RESET_FAIL:
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
