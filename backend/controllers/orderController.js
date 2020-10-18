@@ -10,11 +10,14 @@ exports.getAllOrders = catchAsync(async (req, res, next) => {
     .sort()
     .limitFields()
     .paginate();
+  const total = await Order.estimatedDocumentCount();
+
   const orders = await features.query;
 
   res.status(200).json({
     status: 'success',
     results: orders.length,
+    total,
     data: {
       orders,
     },

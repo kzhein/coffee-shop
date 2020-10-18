@@ -27,6 +27,15 @@ export const START_LOADING = 'START_LOADING';
 
 export const UPDATE_DELIVERY = 'UPDATE_DELIVERY';
 
+export const GET_ALL_ORDERS = 'GET_ALL_ORDERS';
+export const SET_CURRENT = 'SET_CURRENT';
+export const UPDATE_ORDER = 'UPDATE_ORDER';
+export const DELETE_ORDER = 'DELETE_ORDER';
+export const ORDER_UPDATE_FAIL = 'ORDER_UPDATE_FAIL';
+export const ORDER_DELETE_FAIL = 'ORDER_DELETE_FAIL';
+export const UPDATE_CURRENT = 'UPDATE_CURRENT';
+export const CLEAR_CURRENT = 'CLEAR_CURRENT';
+
 export const GET_ORDERS = 'GET_ORDERS';
 export const ADD_ORDER = 'ADD_ORDER';
 export const CLEAR_ORDERS = 'CLEAR_ORDERS';

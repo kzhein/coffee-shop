@@ -11,6 +11,7 @@ import Profile from './components/pages/Profile';
 import ForgotPassword from './components/pages/ForgotPassword';
 import ResetPassword from './components/pages/ResetPassword';
 import DeliveryConfirm from './components/profile/DeliveryConfirm';
+import Dashboard from './components/pages/Dashboard';
 import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -57,6 +58,7 @@ const App = () => {
                       path='/delivery-info'
                       component={DeliveryConfirm}
                     />
+                    <Route path='/dashboard' component={Dashboard} />
                   </Switch>
                 </div>
               </Router>
