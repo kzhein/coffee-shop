@@ -116,7 +116,10 @@ const OrderState = props => {
     try {
       dispatch({ type: START_LOADING });
       const res = await axios.get('/api/v1/orders/getMyOrders');
-      dispatch({ type: GET_ORDERS, payload: res.data.data.orders });
+      dispatch({
+        type: GET_ORDERS,
+        payload: { orders: res.data.data.orders, total: res.data.results },
+      });
     } catch (err) {
       dispatch({ type: ORDER_ERROR, payload: err.response.message });
     }
