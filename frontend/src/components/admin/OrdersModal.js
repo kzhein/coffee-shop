@@ -75,8 +75,8 @@ const OrdersModal = () => {
                 disabled
               ></textarea>
             </div>
-            {current.order.map(odr => (
-              <div key={odr._id} className='form-group'>
+            {current.order.map((odr, index) => (
+              <div key={index} className='form-group'>
                 <label>{odr.product.name}</label>
                 <input
                   type='text'
