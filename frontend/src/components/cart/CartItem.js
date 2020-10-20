@@ -14,7 +14,7 @@ const CartItem = ({ product }) => {
       <img src={`/img/products/${product.image}`} alt='' />
       <div className='cart-item-details'>{product.name}</div>
       <div className='cart-item-price'>
-        <span>{product.price}Ks</span>
+        <span>{new Intl.NumberFormat('en-US').format(product.price)}Ks</span>
         <label htmlFor='count'>Qty: </label>
         <select
           value={product.quantity}

@@ -18,7 +18,7 @@ const CartPrice = () => {
     <div className='cart-price'>
       <div className='total'>
         <span>Total</span>
-        {total}Ks
+        {new Intl.NumberFormat('en-US').format(total)}Ks
       </div>
       {products.length > 0 && (
         <button className='order' disabled={!isAuthenticated} onClick={onClick}>

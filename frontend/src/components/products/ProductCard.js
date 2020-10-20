@@ -23,7 +23,9 @@ const ProductCard = ({ product }) => {
         <img src={`/img/products/${product.image}`} alt='product' />
       </div>
       <div className='product-desc'>
-        <span className='price'>{product.price} Ks</span>
+        <span className='price'>
+          {new Intl.NumberFormat('en-US').format(product.price)} Ks
+        </span>
         <p className='name'>{product.name}</p>
         <p className='description'>
           <TextTruncate line={3} text={product.description} />

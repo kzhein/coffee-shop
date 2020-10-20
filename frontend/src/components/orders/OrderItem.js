@@ -7,7 +7,9 @@ const OrderItem = ({ order }) => {
       <img src={`/img/products/${order.product.image}`} alt='' />
       <div className='order-item-details'>{order.product.name}</div>
       <div className='order-item-price'>
-        <span>{order.purchasedPrice}Ks</span>
+        <span>
+          {new Intl.NumberFormat('en-US').format(order.purchasedPrice)}Ks
+        </span>
         Qty: {order.quantity}
       </div>
     </div>

@@ -6,7 +6,7 @@ const OrderStatus = ({ order }) => {
     <div className='order-price'>
       <div className='total'>
         <span>Total</span>
-        {order.total}Ks
+        {new Intl.NumberFormat('en-US').format(order.total)}Ks
       </div>
       <div className='ordered-at'>
         <span className='first'>Ordered at</span>

@@ -52,7 +52,8 @@ const OrdersModal = () => {
               {new Date(current.createdAt).toLocaleString()}
             </p>
             <p>
-              <span className='total'>Total:</span> {current.total}Ks
+              <span className='total'>Total:</span>{' '}
+              {new Intl.NumberFormat('en-US').format(current.total)}Ks
             </p>
             <div className='form-group'>
               <label htmlFor='address'>Address</label>
