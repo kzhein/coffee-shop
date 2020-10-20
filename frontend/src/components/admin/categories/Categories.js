@@ -9,9 +9,13 @@ import './Categories.css';
 const Categories = () => {
   const { loadUser } = useContext(AuthContext);
   const { setAlert } = useContext(AlertContext);
-  const { getAllCategories, success, error, clearBoth } = useContext(
-    CategoryContext
-  );
+  const {
+    getAllCategories,
+    success,
+    error,
+    clearErrors,
+    clearSuccess,
+  } = useContext(CategoryContext);
 
   useEffect(() => {
     loadUser();
@@ -22,12 +26,12 @@ const Categories = () => {
   useEffect(() => {
     if (success) {
       setAlert(success, 'success');
-      clearBoth();
+      clearSuccess();
     }
 
     if (error) {
       setAlert(error, 'danger');
-      clearBoth();
+      clearErrors();
     }
     // eslint-disable-next-line
   }, [success, error]);

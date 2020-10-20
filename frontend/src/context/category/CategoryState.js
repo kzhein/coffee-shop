@@ -15,6 +15,8 @@ import {
   UPDATE_NEW,
   SET_NEW_CATEGORY,
   CLEAR_BOTH,
+  CLEAR_ERRORS,
+  CLEAR_SUCCESS,
   CATEGORY_ERROR,
   START_LOADING,
 } from '../types';
@@ -136,6 +138,10 @@ const CategoryState = props => {
     dispatch({ type: CLEAR_BOTH });
   };
 
+  const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+
+  const clearSuccess = () => dispatch({ type: CLEAR_SUCCESS });
+
   return (
     <CategoryContext.Provider
       value={{
@@ -154,6 +160,8 @@ const CategoryState = props => {
         updateNew,
         setNew,
         clearBoth,
+        clearErrors,
+        clearSuccess,
       }}
     >
       {props.children}
