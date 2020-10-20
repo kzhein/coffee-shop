@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import TextTruncate from 'react-text-truncate';
 import CartContext from '../../context/cart/cartContext';
 import AlertContext from '../../context/alert/alertContext';
 import './ProductCard.css';
@@ -24,6 +25,9 @@ const ProductCard = ({ product }) => {
       <div className='product-desc'>
         <span className='price'>{product.price} Ks</span>
         <p className='name'>{product.name}</p>
+        <p className='description'>
+          <TextTruncate line={3} text={product.description} />
+        </p>
         <a
           href='#!'
           className={`add-cart ${alreadyAdded && 'already-added'}`}
