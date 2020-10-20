@@ -18,7 +18,7 @@ const Dashboard = ({ match }) => {
       <div className='dashboard container'>
         <div className='dashboard-nav-container'>
           <div className='dashboard-nav '>
-            <Link to={`${match.url}/orders`}>Orders</Link>
+            <Link to={'/dashboard/orders'}>Orders</Link>
           </div>
           <div className='dashboard-nav '>
             <Link to='/dashboard/products'>Products</Link>
@@ -35,7 +35,7 @@ const Dashboard = ({ match }) => {
         </div>
 
         <Switch>
-          <Route path={`${match.path}/orders`} component={Orders} />
+          <Route exact path={'/dashboard/orders'} component={Orders} />
           <Route exact path='/dashboard/products' component={Products} />
           <Route exact path='/dashboard/categories' component={Categories} />
           <Route exact path='/dashboard/types' component={Types} />
