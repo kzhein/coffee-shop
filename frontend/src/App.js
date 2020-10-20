@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
+import RestrictRoute from './components/routing/RestrictRoute';
 
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
@@ -78,7 +79,11 @@ const App = () => {
                             path='/delivery-info'
                             component={DeliveryConfirm}
                           />
-                          <Route path='/dashboard' component={Dashboard} />
+                          <RestrictRoute
+                            path='/dashboard'
+                            component={Dashboard}
+                            allowed={['admin']}
+                          />
                         </Switch>
                       </Suspense>
                     </div>
