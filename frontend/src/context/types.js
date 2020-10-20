@@ -43,6 +43,16 @@ export const CATEGORY_DELETE_FAIL = 'CATEGORY_DELETE_FAIL';
 export const CREATE_CATEGORY = 'CREATE_CATEGORY';
 export const CATEGORY_CREATE_FAIL = 'CATEGORY_CREATE_FAIL';
 
+export const GET_ALL_TYPES = 'GET_ALL_TYPES';
+export const TYPE_ERROR = 'TYPE_ERROR';
+export const SET_NEW_TYPE = 'SET_NEW_TYPE';
+export const UPDATE_TYPE = 'UPDATE_TYPE';
+export const TYPE_UPDATE_FAIL = 'TYPE_UPDATE_FAIL';
+export const DELETE_TYPE = 'DELETE_TYPE';
+export const TYPE_DELETE_FAIL = 'TYPE_DELETE_FAIL';
+export const CREATE_TYPE = 'CREATE_TYPE';
+export const TYPE_CREATE_FAIL = 'TYPE_CREATE_FAIL';
+
 export const GET_ORDERS = 'GET_ORDERS';
 export const ADD_ORDER = 'ADD_ORDER';
 export const CLEAR_ORDERS = 'CLEAR_ORDERS';

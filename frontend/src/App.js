@@ -13,6 +13,7 @@ import CartState from './context/cart/CartState';
 import DeliveryState from './context/delivery/DeliveryState';
 import OrderState from './context/order/OrderState';
 import CategoryState from './context/category/CategoryState';
+import TypeState from './context/type/TypeState';
 import setAuthToken from './utils/setAuthToken';
 
 const Login = lazy(() => import('./components/pages/Login'));
@@ -38,47 +39,51 @@ const App = () => {
           <OrderState>
             <AlertState>
               <CategoryState>
-                <Router>
-                  <div className='App'>
-                    <Navbar />
-                    <Alerts />
-                    <Suspense
-                      fallback={
-                        <h1 style={{ marginTop: '10rem', textAlign: 'center' }}>
-                          Loading...
-                        </h1>
-                      }
-                    >
-                      <Switch>
-                        <Route exact path='/' component={Home} />
-                        <Route exact path='/login' component={Login} />
-                        <Route exact path='/register' component={Register} />
-                        <Route exact path='/cart' component={Cart} />
-                        <Route
-                          exact
-                          path='/forgot-password'
-                          component={ForgotPassword}
-                        />
-                        <Route
-                          exact
-                          path='/reset-password/:token'
-                          component={ResetPassword}
-                        />
-                        <PrivateRoute
-                          exact
-                          path='/profile'
-                          component={Profile}
-                        />
-                        <PrivateRoute
-                          exact
-                          path='/delivery-info'
-                          component={DeliveryConfirm}
-                        />
-                        <Route path='/dashboard' component={Dashboard} />
-                      </Switch>
-                    </Suspense>
-                  </div>
-                </Router>
+                <TypeState>
+                  <Router>
+                    <div className='App'>
+                      <Navbar />
+                      <Alerts />
+                      <Suspense
+                        fallback={
+                          <h1
+                            style={{ marginTop: '10rem', textAlign: 'center' }}
+                          >
+                            Loading...
+                          </h1>
+                        }
+                      >
+                        <Switch>
+                          <Route exact path='/' component={Home} />
+                          <Route exact path='/login' component={Login} />
+                          <Route exact path='/register' component={Register} />
+                          <Route exact path='/cart' component={Cart} />
+                          <Route
+                            exact
+                            path='/forgot-password'
+                            component={ForgotPassword}
+                          />
+                          <Route
+                            exact
+                            path='/reset-password/:token'
+                            component={ResetPassword}
+                          />
+                          <PrivateRoute
+                            exact
+                            path='/profile'
+                            component={Profile}
+                          />
+                          <PrivateRoute
+                            exact
+                            path='/delivery-info'
+                            component={DeliveryConfirm}
+                          />
+                          <Route path='/dashboard' component={Dashboard} />
+                        </Switch>
+                      </Suspense>
+                    </div>
+                  </Router>
+                </TypeState>
               </CategoryState>
             </AlertState>
           </OrderState>

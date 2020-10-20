@@ -1,0 +1,45 @@
+.types .add-new {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.types .add-new a {
+  background-color: rgb(37, 224, 77);
+  color: #eee;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.types .datatable-container {
+  overflow-x: auto;
+}
+
+.types .datatable {
+  margin: 1rem auto;
+  border-collapse: collapse;
+  width: 100%;
+  cursor: pointer;
+}
+
+.types .datatable td,
+.types .datatable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.types .datatable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.types .datatable tr:hover {
+  background-color: #ddd;
+}
+
+.types .datatable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--primary-color);
+  color: white;
+}

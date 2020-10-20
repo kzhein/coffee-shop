@@ -8,7 +8,7 @@ import {
 import Orders from '../admin/orders/Orders';
 import Products from '../admin/products/Products';
 import Categories from '../admin/categories/Categories';
-import Types from '../admin/Types';
+import Types from '../admin/types/Types';
 import Users from '../admin/Users';
 import './Dashboard.css';
 

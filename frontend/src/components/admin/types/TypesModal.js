@@ -1,18 +1,18 @@
 import React, { useContext, useEffect } from 'react';
-import CategoryContext from '../../../context/category/categoryContext';
-import './CategoriesModal.css';
+import TypeContext from '../../../context/type/typeContext';
+import './TypesModal.css';
 
-const CategoriesModal = () => {
+const TypesModal = () => {
   const {
     current,
-    newCategory,
+    newType,
     updateCurrent,
-    updateCategory,
-    deleteCategory,
-    createCategory,
+    updateType,
+    deleteType,
+    createType,
     updateNew,
     clearBoth,
-  } = useContext(CategoryContext);
+  } = useContext(TypeContext);
 
   useEffect(() => {
     window.onclick = e => {
@@ -27,14 +27,14 @@ const CategoriesModal = () => {
 
   const onClick = type => {
     if (type === 'update') {
-      updateCategory(current);
+      updateType(current);
       clearBoth();
     } else if (type === 'create') {
-      createCategory(newCategory);
+      createType(newType);
       clearBoth();
     } else {
-      if (window.confirm('Are you sure you want to delete this category?')) {
-        deleteCategory(current._id);
+      if (window.confirm('Are you sure you want to delete this type?')) {
+        deleteType(current._id);
         clearBoth();
       }
     }
@@ -43,13 +43,13 @@ const CategoriesModal = () => {
   const onChange = e => {
     if (current) {
       updateCurrent({ ...current, [e.target.name]: e.target.value });
-    } else if (newCategory) {
-      updateNew({ ...newCategory, [e.target.name]: e.target.value });
+    } else if (newType) {
+      updateNew({ ...newType, [e.target.name]: e.target.value });
     }
   };
 
   return (
-    (current || newCategory) && (
+    (current || newType) && (
       <div id='myModal' className='modal'>
         <div className='modal-content'>
           <span className='close' onClick={clearBoth}>
@@ -62,7 +62,7 @@ const CategoriesModal = () => {
                 type='text'
                 name='name'
                 id='name'
-                value={current ? current.name : newCategory.name}
+                value={current ? current.name : newType.name}
                 onChange={onChange}
               />
             </div>
@@ -73,7 +73,7 @@ const CategoriesModal = () => {
                 id='description'
                 cols='30'
                 rows='5'
-                value={current ? current.description : newCategory.description}
+                value={current ? current.description : newType.description}
                 onChange={onChange}
               ></textarea>
             </div>
@@ -92,7 +92,7 @@ const CategoriesModal = () => {
                   className='button button-delete'
                   onClick={() => onClick('delete')}
                 >
-                  Delete Category
+                  Delete Type
                 </button>
               )}
               <button className='button button-cancel' onClick={clearBoth}>
@@ -106,4 +106,4 @@ const CategoriesModal = () => {
   );
 };
 
-export default CategoriesModal;
+export default TypesModal;
