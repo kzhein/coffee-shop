@@ -1,43 +1,22 @@
 import React, { useRef, useContext, useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
-import OrderContext from '../../context/order/orderContext';
-import AlertContext from '../../context/alert/alertContext';
-import Loading from '../layout/Loading';
+import OrderContext from '../../../context/order/orderContext';
+import Loading from '../../layout/Loading';
 import './OrdersTable.css';
 
 const OrdersTable = () => {
   const [perPage, setPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const perPageRef = useRef(null);
-  const { setAlert } = useContext(AlertContext);
-  const {
-    getAllOrders,
-    orders,
-    total,
-    loading,
-    setCurrent,
-    success,
-    error,
-    clearErrors,
-    clearSuccess,
-  } = useContext(OrderContext);
+
+  const { getAllOrders, orders, total, loading, setCurrent } = useContext(
+    OrderContext
+  );
 
   useEffect(() => {
     getAllOrders(perPage, currentPage);
-  }, [perPage, currentPage]);
-
-  useEffect(() => {
-    if (success) {
-      setAlert(success, 'success');
-      clearSuccess();
-    }
-
-    if (error) {
-      setAlert(error, 'danger');
-      clearErrors();
-    }
     // eslint-disable-next-line
-  }, [success, error]);
+  }, [perPage, currentPage]);
 
   const changePerPage = e => {
     e.preventDefault();

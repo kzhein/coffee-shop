@@ -1,8 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Orders from '../admin/Orders';
-import Products from '../admin/Products';
-import Categories from '../admin/Categories';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink as Link,
+} from 'react-router-dom';
+import Orders from '../admin/orders/Orders';
+import Products from '../admin/products/Products';
+import Categories from '../admin/categories/Categories';
 import Types from '../admin/Types';
 import Users from '../admin/Users';
 import './Dashboard.css';
@@ -12,8 +17,8 @@ const Dashboard = ({ match }) => {
     <Router>
       <div className='dashboard container'>
         <div className='dashboard-nav-container'>
-          <div className='dashboard-nav active'>
-            <Link to='/dashboard'>Orders</Link>
+          <div className='dashboard-nav '>
+            <Link to={`${match.url}/orders`}>Orders</Link>
           </div>
           <div className='dashboard-nav '>
             <Link to='/dashboard/products'>Products</Link>
@@ -30,7 +35,7 @@ const Dashboard = ({ match }) => {
         </div>
 
         <Switch>
-          <Route exact path='/dashboard' component={Orders} />
+          <Route path={`${match.path}/orders`} component={Orders} />
           <Route exact path='/dashboard/products' component={Products} />
           <Route exact path='/dashboard/categories' component={Categories} />
           <Route exact path='/dashboard/types' component={Types} />

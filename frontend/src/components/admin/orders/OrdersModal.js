@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import OrderContext from '../../context/order/orderContext';
+import React, { useEffect, useContext } from 'react';
+import OrderContext from '../../../context/order/orderContext';
 import './OrdersModal.css';
 
 const OrdersModal = () => {
@@ -13,10 +13,11 @@ const OrdersModal = () => {
 
   useEffect(() => {
     window.onclick = e => {
-      if (e.target.id == 'myModal') {
+      if (e.target.id === 'myModal') {
         clearCurrent();
       }
     };
+    // eslint-disable-next-line
   }, []);
 
   const onChange = e => {

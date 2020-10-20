@@ -32,6 +32,7 @@ const UpdatePassword = () => {
       setAlert(error, 'danger');
       clearErrors();
     }
+    // eslint-disable-next-line
   }, [success, error]);
 
   const onSubmit = e => {

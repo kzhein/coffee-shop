@@ -20,6 +20,7 @@ import AlertState from './context/alert/AlertState';
 import CartState from './context/cart/CartState';
 import DeliveryState from './context/delivery/DeliveryState';
 import OrderState from './context/order/OrderState';
+import CategoryState from './context/category/CategoryState';
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
@@ -33,35 +34,37 @@ const App = () => {
         <DeliveryState>
           <OrderState>
             <AlertState>
-              <Router>
-                <div className='App'>
-                  <Navbar />
-                  <Alerts />
-                  <Switch>
-                    <Route exact path='/' component={Home} />
-                    <Route exact path='/login' component={Login} />
-                    <Route exact path='/register' component={Register} />
-                    <Route exact path='/cart' component={Cart} />
-                    <Route
-                      exact
-                      path='/forgot-password'
-                      component={ForgotPassword}
-                    />
-                    <Route
-                      exact
-                      path='/reset-password/:token'
-                      component={ResetPassword}
-                    />
-                    <PrivateRoute exact path='/profile' component={Profile} />
-                    <PrivateRoute
-                      exact
-                      path='/delivery-info'
-                      component={DeliveryConfirm}
-                    />
-                    <Route path='/dashboard' component={Dashboard} />
-                  </Switch>
-                </div>
-              </Router>
+              <CategoryState>
+                <Router>
+                  <div className='App'>
+                    <Navbar />
+                    <Alerts />
+                    <Switch>
+                      <Route exact path='/' component={Home} />
+                      <Route exact path='/login' component={Login} />
+                      <Route exact path='/register' component={Register} />
+                      <Route exact path='/cart' component={Cart} />
+                      <Route
+                        exact
+                        path='/forgot-password'
+                        component={ForgotPassword}
+                      />
+                      <Route
+                        exact
+                        path='/reset-password/:token'
+                        component={ResetPassword}
+                      />
+                      <PrivateRoute exact path='/profile' component={Profile} />
+                      <PrivateRoute
+                        exact
+                        path='/delivery-info'
+                        component={DeliveryConfirm}
+                      />
+                      <Route path='/dashboard' component={Dashboard} />
+                    </Switch>
+                  </div>
+                </Router>
+              </CategoryState>
             </AlertState>
           </OrderState>
         </DeliveryState>

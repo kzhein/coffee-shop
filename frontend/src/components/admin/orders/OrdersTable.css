@@ -1,40 +1,40 @@
-.per-page {
+.orders .per-page {
   display: flex;
   justify-content: flex-end;
   margin-top: 2rem;
 }
-.per-page input {
+.orders .per-page input {
   width: 50px;
   padding: 0.1rem 0.1rem;
   margin-left: 0.2rem;
 }
 
-.datatable-container {
+.orders .datatable-container {
   overflow-x: auto;
 }
 
-.datatable {
+.orders .datatable {
   margin: 1rem auto;
   border-collapse: collapse;
   width: 100%;
   cursor: pointer;
 }
 
-.datatable td,
-.datatable th {
+.orders .datatable td,
+.orders .datatable th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-.datatable tr:nth-child(even) {
+.orders .datatable tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.datatable tr:hover {
+.orders .datatable tr:hover {
   background-color: #ddd;
 }
 
-.datatable th {
+.orders .datatable th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -42,29 +42,29 @@
   color: white;
 }
 
-.pagination {
+.orders .pagination {
   max-width: 500px;
   margin: 0.5rem auto;
 }
-.pagination ul {
+.orders .pagination ul {
   /* background-color: red; */
 
   display: flex;
   justify-content: space-around;
 }
-.pagination li {
+.orders .pagination li {
   background-color: #f3f3f3;
   padding: 0.2rem 0.7rem;
   cursor: pointer;
 }
 
-.pagination li a {
+.orders .pagination li a {
   outline: none;
 }
 
-.pagination li.selected {
+.orders .pagination li.selected {
   background-color: var(--primary-color);
 }
-.pagination li.selected a {
+.orders .pagination li.selected a {
   color: #fff;
 }

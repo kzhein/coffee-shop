@@ -17,17 +17,19 @@
   scrollbar-width: none; /* Firefox */
 }
 
-.dashboard-nav {
+.dashboard-nav a {
+  display: block;
+  padding: 0 30px;
+  margin-right: 2rem;
   height: 60px;
   line-height: 60px;
-  padding: 0 30px;
   border-radius: 20px;
   background-color: #f3f3f3;
-  margin-right: 2rem;
+  color: #000;
   cursor: pointer;
 }
 
-.active {
+.dashboard-nav a.active {
   background-color: var(--primary-color);
   color: #fff;
 }
