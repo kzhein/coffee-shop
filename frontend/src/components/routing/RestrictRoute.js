@@ -14,7 +14,7 @@ const RestrictRoute = ({ component: Component, allowed, ...rest }) => {
       {...rest}
       render={props =>
         !loading && !allowed.includes(user.role) ? (
-          <Redirect to='/login' />
+          <Redirect to='/' />
         ) : (
           <Component {...props} />
         )

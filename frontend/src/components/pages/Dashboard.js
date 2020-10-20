@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,15 +10,23 @@ import Products from '../admin/products/Products';
 import Categories from '../admin/categories/Categories';
 import Types from '../admin/types/Types';
 import Users from '../admin/Users';
+import AuthContext from '../../context/auth/authContext';
 import './Dashboard.css';
 
-const Dashboard = ({ match }) => {
+const Dashboard = () => {
+  const { loadUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    loadUser();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <Router>
       <div className='dashboard container'>
         <div className='dashboard-nav-container'>
           <div className='dashboard-nav '>
-            <Link to={'/dashboard/orders'}>Orders</Link>
+            <Link to='/dashboard/orders'>Orders</Link>
           </div>
           <div className='dashboard-nav '>
             <Link to='/dashboard/products'>Products</Link>
