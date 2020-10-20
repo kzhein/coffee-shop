@@ -26,7 +26,9 @@ const Dashboard = () => {
       <div className='dashboard container'>
         <div className='dashboard-nav-container'>
           <div className='dashboard-nav '>
-            <Link to='/dashboard/orders'>Orders</Link>
+            <Link exact to='/dashboard'>
+              Orders
+            </Link>
           </div>
           <div className='dashboard-nav '>
             <Link to='/dashboard/products'>Products</Link>
@@ -43,7 +45,7 @@ const Dashboard = () => {
         </div>
 
         <Switch>
-          <Route exact path={'/dashboard/orders'} component={Orders} />
+          <Route exact path={'/dashboard'} component={Orders} />
           <Route exact path='/dashboard/products' component={Products} />
           <Route exact path='/dashboard/categories' component={Categories} />
           <Route exact path='/dashboard/types' component={Types} />
