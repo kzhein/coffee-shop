@@ -21,7 +21,6 @@ exports.getAllCategories = catchAsync(async (req, res, next) => {
 });
 
 exports.createCategory = catchAsync(async (req, res, next) => {
-  console.log(req.body);
   const category = await Category.create(req.body);
 
   res.status(201).json({
