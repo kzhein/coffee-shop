@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import loading from './loading.gif';
 
-const Loading = () => {
+const Loading = ({ extraStyle }) => {
+  console.log(extraStyle);
   return (
     <Fragment>
       <img
@@ -11,6 +12,7 @@ const Loading = () => {
           width: '100px',
           margin: 'auto',
           display: 'block',
+          ...extraStyle,
         }}
       />
     </Fragment>
