@@ -5,6 +5,13 @@ import './App.css';
 import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import Alerts from './components/layout/Alerts';
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
+import Cart from './components/pages/Cart';
+import Profile from './components/pages/Profile';
+import ForgotPassword from './components/pages/ForgotPassword';
+import ResetPassword from './components/pages/ResetPassword';
+import DeliveryConfirm from './components/profile/DeliveryConfirm';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 import RestrictRoute from './components/routing/RestrictRoute';
@@ -18,15 +25,6 @@ import CategoryState from './context/category/CategoryState';
 import TypeState from './context/type/TypeState';
 import setAuthToken from './utils/setAuthToken';
 
-const Login = lazy(() => import('./components/pages/Login'));
-const Register = lazy(() => import('./components/pages/Register'));
-const Cart = lazy(() => import('./components/pages/Cart'));
-const Profile = lazy(() => import('./components/pages/Profile'));
-const ForgotPassword = lazy(() => import('./components/pages/ForgotPassword'));
-const ResetPassword = lazy(() => import('./components/pages/ResetPassword'));
-const DeliveryConfirm = lazy(() =>
-  import('./components/profile/DeliveryConfirm')
-);
 const Dashboard = lazy(() => import('./components/pages/Dashboard'));
 
 if (localStorage.token) {
@@ -46,47 +44,52 @@ const App = () => {
                     <div className='App'>
                       <Navbar />
                       <Alerts />
-                      <Suspense
-                        fallback={
-                          <h1
-                            style={{ marginTop: '10rem', textAlign: 'center' }}
-                          >
-                            Loading...
-                          </h1>
-                        }
-                      >
-                        <Switch>
-                          <Route exact path='/' component={Home} />
-                          <Route exact path='/login' component={Login} />
-                          <Route exact path='/register' component={Register} />
-                          <Route exact path='/cart' component={Cart} />
-                          <Route
-                            exact
-                            path='/forgot-password'
-                            component={ForgotPassword}
-                          />
-                          <Route
-                            exact
-                            path='/reset-password/:token'
-                            component={ResetPassword}
-                          />
-                          <PrivateRoute
-                            exact
-                            path='/profile'
-                            component={Profile}
-                          />
-                          <PrivateRoute
-                            exact
-                            path='/delivery-info'
-                            component={DeliveryConfirm}
-                          />
+
+                      <Switch>
+                        <Route exact path='/' component={Home} />
+                        <Route exact path='/login' component={Login} />
+                        <Route exact path='/register' component={Register} />
+                        <Route exact path='/cart' component={Cart} />
+                        <Route
+                          exact
+                          path='/forgot-password'
+                          component={ForgotPassword}
+                        />
+                        <Route
+                          exact
+                          path='/reset-password/:token'
+                          component={ResetPassword}
+                        />
+                        <PrivateRoute
+                          exact
+                          path='/profile'
+                          component={Profile}
+                        />
+                        <PrivateRoute
+                          exact
+                          path='/delivery-info'
+                          component={DeliveryConfirm}
+                        />
+
+                        <Suspense
+                          fallback={
+                            <h1
+                              style={{
+                                marginTop: '10rem',
+                                textAlign: 'center',
+                              }}
+                            >
+                              Loading...
+                            </h1>
+                          }
+                        >
                           <RestrictRoute
                             path='/dashboard'
                             component={Dashboard}
                             allowed={['admin']}
                           />
-                        </Switch>
-                      </Suspense>
+                        </Suspense>
+                      </Switch>
                     </div>
                   </Router>
                 </TypeState>
