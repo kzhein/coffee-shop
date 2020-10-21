@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import TypeContext from '../../../context/type/typeContext';
 import './TypesModal.css';
 
@@ -49,60 +49,62 @@ const TypesModal = () => {
   };
 
   return (
-    (current || newType) && (
-      <div id='myModal' className='modal'>
-        <div className='modal-content'>
-          <span className='close' onClick={clearBoth}>
-            &times;
-          </span>
-          <form onSubmit={onSubmit}>
-            <div className='form-group'>
-              <label>Name</label>
-              <input
-                type='text'
-                name='name'
-                id='name'
-                value={current ? current.name : newType.name}
-                onChange={onChange}
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='description'>Description</label>
-              <textarea
-                name='description'
-                id='description'
-                cols='30'
-                rows='5'
-                value={current ? current.description : newType.description}
-                onChange={onChange}
-              ></textarea>
-            </div>
+    <Fragment>
+      {(current || newType) && (
+        <div id='myModal' className='modal'>
+          <div className='modal-content'>
+            <span className='close' onClick={clearBoth}>
+              &times;
+            </span>
+            <form onSubmit={onSubmit}>
+              <div className='form-group'>
+                <label>Name</label>
+                <input
+                  type='text'
+                  name='name'
+                  id='name'
+                  value={current ? current.name : newType.name}
+                  onChange={onChange}
+                />
+              </div>
+              <div className='form-group'>
+                <label htmlFor='description'>Description</label>
+                <textarea
+                  name='description'
+                  id='description'
+                  cols='30'
+                  rows='5'
+                  value={current ? current.description : newType.description}
+                  onChange={onChange}
+                ></textarea>
+              </div>
 
-            <div className='form-group'>
-              <button
-                className='button button-update'
-                onClick={() => {
-                  current ? onClick('update') : onClick('create');
-                }}
-              >
-                {current ? 'Update' : 'Create'}
-              </button>
-              {current && (
+              <div className='form-group'>
                 <button
-                  className='button button-delete'
-                  onClick={() => onClick('delete')}
+                  className='button button-update'
+                  onClick={() => {
+                    current ? onClick('update') : onClick('create');
+                  }}
                 >
-                  Delete Type
+                  {current ? 'Update' : 'Create'}
                 </button>
-              )}
-              <button className='button button-cancel' onClick={clearBoth}>
-                Cancel
-              </button>
-            </div>
-          </form>
+                {current && (
+                  <button
+                    className='button button-delete'
+                    onClick={() => onClick('delete')}
+                  >
+                    Delete Type
+                  </button>
+                )}
+                <button className='button button-cancel' onClick={clearBoth}>
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    )
+      )}
+    </Fragment>
   );
 };
 
