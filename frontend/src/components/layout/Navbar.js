@@ -6,7 +6,7 @@ import OrderContext from '../../context/order/orderContext';
 import './Navbar.css';
 
 const Navbar = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { user, isAuthenticated, logout } = useContext(AuthContext);
   const { products, clearCart } = useContext(CartContext);
   const { clearOrders } = useContext(OrderContext);
 
@@ -18,7 +18,6 @@ const Navbar = () => {
     clearOrders();
 
     history.push('/');
-    // props.history.push('/');
   };
 
   return (
@@ -60,6 +59,12 @@ const Navbar = () => {
               </a>
             </li>
           </Fragment>
+        )}
+
+        {user && user.role === 'admin' && (
+          <li>
+            <Link to='/dashboard'>Dashboard</Link>
+          </li>
         )}
       </ul>
     </nav>
