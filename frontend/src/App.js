@@ -5,6 +5,7 @@ import './App.css';
 import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import Alerts from './components/layout/Alerts';
+
 import PrivateRoute from './components/routing/PrivateRoute';
 import RestrictRoute from './components/routing/RestrictRoute';
 

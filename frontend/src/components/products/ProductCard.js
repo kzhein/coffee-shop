@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
         </span>
         <p className='name'>{product.name}</p>
         <p className='description'>
-          <TextTruncate line={3} text={product.description} />
+          <TextTruncate element='span' line={3} text={product.description} />
         </p>
         <a
           href='#!'
