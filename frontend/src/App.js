@@ -12,6 +12,7 @@ import Profile from './components/pages/Profile';
 import ForgotPassword from './components/pages/ForgotPassword';
 import ResetPassword from './components/pages/ResetPassword';
 import DeliveryConfirm from './components/profile/DeliveryConfirm';
+import NotFound from './components/pages/NotFound';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 import RestrictRoute from './components/routing/RestrictRoute';
@@ -96,6 +97,7 @@ const App = () => {
                                 component={Dashboard}
                                 allowed={['admin']}
                               />
+                              <Route component={NotFound} />
                             </Suspense>
                           </Switch>
                         </div>
