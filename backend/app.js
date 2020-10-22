@@ -24,8 +24,31 @@ app.use(cors());
 app.options('*', cors());
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  express.static(path.join(__dirname, '..', 'frontend', 'build'), {
+    index: false,
+  })
+);
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        baseUri: ["'self'"],
+        blockAllMixedContent: [],
+        fontSrc: ["'self'", 'https:', 'data'],
+        frameAncestors: ["'self'"],
+        imgSrc: ["'self'", 'data:'],
+        objectSrc: ["'none'"],
+        scriptSrc: ["'self'", 'kit.fontawesome.com'],
+        scriptSrcAttr: ["'none'"],
+        styleSrc: ["'self'", 'https:', 'unsafe-inline'],
+        upgradeInsecureRequests: [],
+      },
+    },
+  })
+);
 
 // Development logging
 if (process.env.NODE_ENV === 'development') {
@@ -58,6 +81,10 @@ app.use('/api/v1/categories', categoryRouter);
 app.use('/api/v1/types', typeRouter);
 app.use('/api/v1/orders', orderRouter);
 app.use('/api/v1/users', userRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
+});
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
