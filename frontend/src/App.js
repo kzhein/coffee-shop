@@ -24,6 +24,7 @@ import OrderState from './context/order/OrderState';
 import CategoryState from './context/category/CategoryState';
 import TypeState from './context/type/TypeState';
 import ProductState from './context/product/ProductState';
+import UserState from './context/user/UserState';
 import setAuthToken from './utils/setAuthToken';
 
 const Dashboard = lazy(() => import('./components/pages/Dashboard'));
@@ -42,58 +43,64 @@ const App = () => {
               <CategoryState>
                 <TypeState>
                   <ProductState>
-                    <Router>
-                      <div className='App'>
-                        <Navbar />
-                        <Alerts />
+                    <UserState>
+                      <Router>
+                        <div className='App'>
+                          <Navbar />
+                          <Alerts />
 
-                        <Switch>
-                          <Route exact path='/' component={Home} />
-                          <Route exact path='/login' component={Login} />
-                          <Route exact path='/register' component={Register} />
-                          <Route exact path='/cart' component={Cart} />
-                          <Route
-                            exact
-                            path='/forgot-password'
-                            component={ForgotPassword}
-                          />
-                          <Route
-                            exact
-                            path='/reset-password/:token'
-                            component={ResetPassword}
-                          />
-                          <PrivateRoute
-                            exact
-                            path='/profile'
-                            component={Profile}
-                          />
-                          <PrivateRoute
-                            exact
-                            path='/delivery-info'
-                            component={DeliveryConfirm}
-                          />
-
-                          <Suspense
-                            fallback={
-                              <h1
-                                style={{
-                                  marginTop: '10rem',
-                                  textAlign: 'center',
-                                }}
-                              >
-                                Loading...
-                              </h1>
-                            }
-                          >
-                            <RestrictRoute
-                              path='/dashboard'
-                              component={Dashboard}
-                              allowed={['admin']}
+                          <Switch>
+                            <Route exact path='/' component={Home} />
+                            <Route exact path='/login' component={Login} />
+                            <Route
+                              exact
+                              path='/register'
+                              component={Register}
                             />
-                          </Suspense>
-                        </Switch>
-                      </div>
-                    </Router>
+                            <Route exact path='/cart' component={Cart} />
+                            <Route
+                              exact
+                              path='/forgot-password'
+                              component={ForgotPassword}
+                            />
+                            <Route
+                              exact
+                              path='/reset-password/:token'
+                              component={ResetPassword}
+                            />
+                            <PrivateRoute
+                              exact
+                              path='/profile'
+                              component={Profile}
+                            />
+                            <PrivateRoute
+                              exact
+                              path='/delivery-info'
+                              component={DeliveryConfirm}
+                            />
+
+                            <Suspense
+                              fallback={
+                                <h1
+                                  style={{
+                                    marginTop: '10rem',
+                                    textAlign: 'center',
+                                  }}
+                                >
+                                  Loading...
+                                </h1>
+                              }
+                            >
+                              <RestrictRoute
+                                path='/dashboard'
+                                component={Dashboard}
+                                allowed={['admin']}
+                              />
+                            </Suspense>
+                          </Switch>
+                        </div>
+                      </Router>
+                    </UserState>
                   </ProductState>
                 </TypeState>
               </CategoryState>

@@ -83,11 +83,14 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
     .sort()
     .limitFields()
     .paginate();
+
   const users = await features.query;
+  const total = await User.estimatedDocumentCount();
 
   res.status(200).json({
     status: 'success',
     results: users.length,
+    total,
     data: {
       users,
     },

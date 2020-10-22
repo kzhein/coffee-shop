@@ -1,0 +1,74 @@
+.users .per-page {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+.users .per-page input {
+  width: 50px;
+  padding: 0.1rem 0.1rem;
+  margin-left: 0.2rem;
+}
+
+.users .datatable-container {
+  overflow-x: auto;
+}
+
+.users .datatable {
+  margin: 1rem auto;
+  border-collapse: collapse;
+  width: 100%;
+  cursor: pointer;
+}
+
+.users .datatable td,
+.users .datatable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.users .datatable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.users .datatable tr:hover {
+  background-color: #ddd;
+}
+
+.users .datatable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.users .datatable td.loggedin {
+  color: rgb(20, 211, 93);
+}
+
+.users .pagination {
+  max-width: 500px;
+  margin: 0.5rem auto;
+}
+.users .pagination ul {
+  /* background-color: red; */
+
+  display: flex;
+  justify-content: space-around;
+}
+.users .pagination li {
+  background-color: #f3f3f3;
+  padding: 0.2rem 0.7rem;
+  cursor: pointer;
+}
+
+.users .pagination li a {
+  outline: none;
+}
+
+.users .pagination li.selected {
+  background-color: var(--primary-color);
+}
+.users .pagination li.selected a {
+  color: #fff;
+}

@@ -9,7 +9,7 @@ import Orders from '../admin/orders/Orders';
 import Products from '../admin/products/Products';
 import Categories from '../admin/categories/Categories';
 import Types from '../admin/types/Types';
-import Users from '../admin/Users';
+import Users from '../admin/users/Users';
 import AuthContext from '../../context/auth/authContext';
 import './Dashboard.css';
 

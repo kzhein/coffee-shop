@@ -63,6 +63,14 @@ export const TYPE_DELETE_FAIL = 'TYPE_DELETE_FAIL';
 export const CREATE_TYPE = 'CREATE_TYPE';
 export const TYPE_CREATE_FAIL = 'TYPE_CREATE_FAIL';
 
+export const GET_ALL_USERS = 'GET_ALL_USERS';
+export const USER_ERROR = 'USER_ERROR';
+export const UPDATE_USER = 'UPDATE_USER';
+export const USER_UPDATE_FAIL = 'USER_UPDATE_FAIL';
+export const DELETE_USER = 'DELETE_USER';
+export const USER_DELETE_FAIL = 'USER_DELETE_FAIL';
+export const USER_CREATE_FAIL = 'USER_CREATE_FAIL';
+
 export const GET_ORDERS = 'GET_ORDERS';
 export const ADD_ORDER = 'ADD_ORDER';
 export const CLEAR_ORDERS = 'CLEAR_ORDERS';
