@@ -7,6 +7,7 @@ node_modules/
 /frontend/.env.production.local
 
 /backend/config.env
+/backend/public
 /backend/.DS_Store
 /backend/npm-debug.log*
 /backend/yarn-debug.log*
