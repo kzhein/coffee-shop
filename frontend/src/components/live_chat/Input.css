@@ -1,0 +1,19 @@
+.live-chat-input {
+  display: flex;
+  height: 30px;
+}
+
+.live-chat-input input[type='text'] {
+  width: 170px;
+  width: 80%;
+  padding: 0.2rem;
+}
+.live-chat-input input[type='text']:focus {
+  outline: none;
+}
+
+.live-chat-input button {
+  width: 20%;
+  background-color: #c87137;
+  border: none;
+}

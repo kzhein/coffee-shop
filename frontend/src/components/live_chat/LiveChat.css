@@ -1,0 +1,45 @@
+.live-chat {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+.live-chat .toggle {
+  min-height: 25px;
+  font-size: 0.8rem;
+  background-color: #c87137;
+  display: flex;
+  justify-content: space-between;
+}
+
+.live-chat .toggle a {
+  line-height: 25px;
+  margin-left: 0.5rem;
+}
+
+.live-chat .toggle .active-users {
+  line-height: 25px;
+  margin-right: 0.5rem;
+}
+
+.live-chat .message-icon {
+  background-color: #c87137;
+  padding: 0.7rem;
+  border-radius: 50%;
+}
+
+.live-chat .message-icon a {
+  font-size: 2rem;
+  margin-left: 0;
+}
+
+.live-chat .message-icon .active-users {
+  /* font-size: 2rem; */
+  margin-right: 0;
+}
+
+.live-chat-content {
+  height: 250px;
+  width: 250px;
+  background-color: red;
+}

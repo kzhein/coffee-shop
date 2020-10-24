@@ -13,6 +13,7 @@ import ForgotPassword from './components/pages/ForgotPassword';
 import ResetPassword from './components/pages/ResetPassword';
 import DeliveryConfirm from './components/profile/DeliveryConfirm';
 import NotFound from './components/pages/NotFound';
+import LiveChat from './components/live_chat/LiveChat';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 import RestrictRoute from './components/routing/RestrictRoute';
@@ -49,6 +50,7 @@ const App = () => {
                         <div className='App'>
                           <Navbar />
                           <Alerts />
+                          <LiveChat />
 
                           <Switch>
                             <Route exact path='/' component={Home} />

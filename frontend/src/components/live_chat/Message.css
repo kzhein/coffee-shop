@@ -1,0 +1,22 @@
+.message-container {
+  font-size: 0.8rem;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.message-container span {
+  margin-right: 0.2rem;
+}
+
+.message {
+  white-space: pre-line;
+  word-wrap: break-word;
+  font-size: 0.8rem;
+  flex: 1;
+}
+
+.message-container .current-user {
+  color: #c87137;
+  text-align: right;
+}

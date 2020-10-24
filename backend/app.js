@@ -43,7 +43,7 @@ app.use(
         objectSrc: ["'none'"],
         scriptSrc: ["'self'", 'kit.fontawesome.com'],
         scriptSrcAttr: ["'none'"],
-        styleSrc: ["'self'", 'https:', 'unsafe-inline'],
+        styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
         upgradeInsecureRequests: [],
       },
     },
