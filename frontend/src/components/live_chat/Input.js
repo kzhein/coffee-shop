@@ -2,12 +2,15 @@ import React, { useRef, useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import './Input.css';
 
-const Input = ({ messages, setMessages, sendMessage, socket }) => {
+const Input = ({ messages, setMessages, socket }) => {
   const { user } = useContext(AuthContext);
   const text = useRef(null);
 
   const onSubmit = e => {
     e.preventDefault();
+
+    if (text.current.value.trim() === '')
+      return alert('Please type something first!');
 
     const message = text.current.value;
     const data = {
@@ -15,15 +18,14 @@ const Input = ({ messages, setMessages, sendMessage, socket }) => {
       message,
     };
 
-    sendMessage(data);
+    socket.emit('sendMessage', data);
 
     text.current.value = null;
 
-    setMessages({
-      user: data.user,
-      message: data.message,
-      isCurrentUser: true,
-    });
+    setMessages([
+      ...messages,
+      { user: data.user, message: data.message, isCurrentUser: true },
+    ]);
   };
 
   return (

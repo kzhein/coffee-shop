@@ -1,87 +1,63 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import openSocket from 'socket.io-client';
 import Messages from './Messages';
 import Input from './Input';
 import './LiveChat.css';
 
-let socket;
+const LiveChat = () => {
+  const [messages, setMessages] = useState([]);
+  const [showLiveChat, setShowLiveChat] = useState(false);
+  let [arrivedMessage, setArrivedMessage] = useState(null);
+  const [connectedUsers, setConnectedUsers] = useState(0);
+  const [socket, setSocket] = useState(null);
 
-class LiveChat extends Component {
-  state = {
-    messages: [],
-    showLiveChat: false,
-    connectedUsers: 0,
-  };
+  useEffect(() => {
+    setSocket(openSocket('/'));
+  }, []);
 
-  componentDidMount() {
-    socket = openSocket('/');
-
-    socket.on('newMessage', data => {
-      this.setState({
-        messages: [
-          ...this.state.messages,
-          { user: data.user, message: data.message },
-        ],
+  useEffect(() => {
+    if (socket) {
+      socket.on('newMessage', data => {
+        setArrivedMessage(data);
       });
-    });
 
-    socket.on('connectedUsers', connectedUsers => {
-      this.setState({ connectedUsers });
-    });
-  }
+      socket.on('connectedUsers', users => setConnectedUsers(users));
+    }
 
-  componentWillUnmount() {
-    socket.close();
-  }
+    return () => {
+      if (socket) socket.close();
+    };
+  }, [socket]);
 
-  sendMessage(data) {
-    socket.emit('sendMessage', data);
-  }
+  useEffect(() => {
+    if (arrivedMessage) {
+      setMessages([
+        ...messages,
+        { user: arrivedMessage.user, message: arrivedMessage.message },
+      ]);
+    }
+  }, [arrivedMessage]);
 
-  setMessages(data) {
-    this.setState({
-      messages: [
-        ...this.state.messages,
-        { user: data.user, message: data.message, isCurrentUser: true },
-      ],
-    });
-  }
-
-  render() {
-    return (
-      <div className='live-chat'>
-        {' '}
-        <div className={`toggle ${!this.state.showLiveChat && 'message-icon'}`}>
-          <a
-            href='#!'
-            onClick={() =>
-              this.setState({ showLiveChat: !this.state.showLiveChat })
-            }
-          >
-            {this.state.showLiveChat ? (
-              'Minimize'
-            ) : (
-              <i class='fas fa-comments'></i>
-            )}
-          </a>
-          <span className='active-users'>
-            {this.state.showLiveChat && `Active: ${this.state.connectedUsers}`}
-          </span>
-        </div>
-        <div
-          className='live-chat-content'
-          style={{ display: `${this.state.showLiveChat ? 'block' : 'none'}` }}
-        >
-          <Messages messages={this.state.messages} />
-          <Input
-            setMessages={this.setMessages.bind(this)}
-            sendMessage={this.sendMessage}
-            socket={this.state.socket}
-          />
-        </div>
+  return (
+    <div className='live-chat'>
+      {' '}
+      <div className={`toggle ${!showLiveChat && 'message-icon'}`}>
+        <a href='#!' onClick={() => setShowLiveChat(!showLiveChat)}>
+          {showLiveChat ? 'Minimize' : <i className='fas fa-comments'></i>}
+        </a>
+        <span className='active-users'>
+          {showLiveChat && `Active: ${connectedUsers}`}
+        </span>
       </div>
-    );
-  }
-}
+      <div
+        className='live-chat-content'
+        style={{ display: `${showLiveChat ? 'block' : 'none'}` }}
+      >
+        <Messages messages={messages} />
+        <Input setMessages={setMessages} messages={messages} socket={socket} />
+      </div>
+    </div>
+  );
+};
 
 export default LiveChat;
