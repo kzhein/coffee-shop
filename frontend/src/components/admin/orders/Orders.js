@@ -4,6 +4,7 @@ import AlertContext from '../../../context/alert/alertContext';
 import OrderContext from '../../../context/order/orderContext';
 import OrdersTable from './OrdersTable';
 import OrdersModal from './OrdersModal';
+import './Orders.css';
 
 const Orders = () => {
   const { loadUser } = useContext(AuthContext);

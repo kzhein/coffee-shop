@@ -4,6 +4,7 @@ import ProductsModal from './ProductsModal';
 import AuthContext from '../../../context/auth/authContext';
 import AlertContext from '../../../context/alert/alertContext';
 import ProductContext from '../../../context/product/productContext';
+import './Products.css';
 
 const Products = () => {
   const { loadUser } = useContext(AuthContext);
