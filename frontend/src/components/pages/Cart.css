@@ -1,5 +1,6 @@
 .cart {
   margin-top: 7rem;
+  min-height: 100vh;
 }
 
 .cart p {
