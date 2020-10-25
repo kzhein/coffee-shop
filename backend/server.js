@@ -33,30 +33,8 @@ const server = app.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
 
-const io = require('./socket').init(server);
-io.on('connection', socket => {
-  console.log('Client connected');
-
-  // the list of currently connected clients
-  io.of('/').clients((error, clients) => {
-    if (error) throw error;
-    io.emit('connectedUsers', clients.length);
-  });
-
-  socket.on('sendMessage', data => {
-    console.log(data);
-    socket.broadcast.emit('newMessage', data);
-  });
-
-  socket.on('disconnect', () => {
-    console.log('a user has left');
-
-    io.of('/').clients((error, clients) => {
-      if (error) throw error;
-      io.emit('connectedUsers', clients.length);
-    });
-  });
-});
+// socket.io
+require('./socket').init(server);
 
 process.on('unhandledRejection', err => {
   console.log('UNHANDLED REJECTION! 💥 Shutting down...');
