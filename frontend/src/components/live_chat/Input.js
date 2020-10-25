@@ -28,9 +28,11 @@ const Input = ({ messages, setMessages, socket }) => {
     ]);
   };
 
+  const onChange = () => socket.emit('someoneTyping');
+
   return (
     <form className='live-chat-input' onSubmit={onSubmit}>
-      <input type='text' ref={text} />
+      <input type='text' ref={text} onChange={onChange} />
       <button>send</button>
     </form>
   );

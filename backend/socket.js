@@ -18,6 +18,8 @@ module.exports = {
         socket.broadcast.emit('newMessage', data);
       });
 
+      socket.on('someoneTyping', () => socket.broadcast.emit('someoneTyping'));
+
       socket.on('disconnect', () => {
         console.log('a user has left');
 

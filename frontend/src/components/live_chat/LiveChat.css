@@ -34,12 +34,14 @@
 }
 
 .live-chat .message-icon .active-users {
-  /* font-size: 2rem; */
   margin-right: 0;
 }
 
 .live-chat-content {
-  height: 250px;
   width: 250px;
-  background-color: red;
+}
+
+.live-chat-content .typing-indicator {
+  font-size: 0.6rem;
+  padding: 0 0 3px 8px;
 }
