@@ -100,8 +100,8 @@ const App = () => {
                                 component={Dashboard}
                                 allowed={['admin']}
                               />
-                              <Route component={NotFound} />
                             </Suspense>
+                            <Route component={NotFound} />
                           </Switch>
                           <Footer />
                         </div>
