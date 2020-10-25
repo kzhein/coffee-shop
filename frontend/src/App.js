@@ -14,6 +14,7 @@ import ResetPassword from './components/pages/ResetPassword';
 import DeliveryConfirm from './components/profile/DeliveryConfirm';
 import NotFound from './components/pages/NotFound';
 import LiveChat from './components/live_chat/LiveChat';
+import Footer from './components/footer/Footer';
 
 import PrivateRoute from './components/routing/PrivateRoute';
 import RestrictRoute from './components/routing/RestrictRoute';
@@ -102,6 +103,7 @@ const App = () => {
                               <Route component={NotFound} />
                             </Suspense>
                           </Switch>
+                          <Footer />
                         </div>
                       </Router>
                     </UserState>
