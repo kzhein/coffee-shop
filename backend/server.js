@@ -24,8 +24,8 @@ mongoose
     useFindAndModify: false,
     useUnifiedTopology: true,
   })
-  .then(() => {
-    console.log('DB connection successful!');
+  .then(conn => {
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
   });
 
 const port = process.env.PORT || 5000;
