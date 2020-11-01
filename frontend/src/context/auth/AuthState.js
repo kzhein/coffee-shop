@@ -36,20 +36,24 @@ const AuthState = props => {
 
   // Load User
   const loadUser = async () => {
-    setAuthToken(localStorage.token);
+    dispatch({ type: START_LOADING });
 
-    try {
-      dispatch({ type: START_LOADING });
-      const {
-        data: {
-          data: { user },
-        },
-      } = await axios.get('/api/v1/users/me');
+    if (localStorage.getItem('token')) {
+      setAuthToken(localStorage.token);
 
-      dispatch({ type: USER_LOADED, payload: user });
-    } catch (err) {
-      dispatch({ type: AUTH_ERROR });
+      try {
+        const {
+          data: {
+            data: { user },
+          },
+        } = await axios.get('/api/v1/users/me');
+
+        return dispatch({ type: USER_LOADED, payload: user });
+      } catch (err) {
+        return dispatch({ type: AUTH_ERROR });
+      }
     }
+    dispatch({ type: LOGOUT });
   };
 
   // Register User
