@@ -41,6 +41,7 @@ app.use(
         frameAncestors: ["'self'"],
         imgSrc: ["'self'", 'data:'],
         objectSrc: ["'none'"],
+        connectSrc: ["'self'", 'ka-f.fontawesome.com'],
         scriptSrc: ["'self'", 'kit.fontawesome.com'],
         scriptSrcAttr: ["'none'"],
         styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
