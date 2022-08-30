@@ -9,8 +9,6 @@ data.md
 /frontend/.env.production.local
 
 /backend/config.env
-/backend/public/img/products/*
-!/backend/public/img/products/.gitkeep
 /backend/.DS_Store
 /backend/npm-debug.log*
 /backend/yarn-debug.log*
